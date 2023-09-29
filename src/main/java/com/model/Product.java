@@ -25,9 +25,6 @@ public class Product {
 	private int p_status;
 	
 	
-//	@OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "id", referencedColumnName = "p_id")
-//    private Product_detail product_detail; 
 	
 
 }
