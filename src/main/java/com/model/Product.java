@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,6 +25,12 @@ public class Product {
 	private String p_brand;
 	@Column
 	private int p_status;
+	
+    @OneToOne
+    @JoinColumn(name = "category_id")
+	private Category category;
+    
+    
 	public Product() {
 		super();
 	}
@@ -50,7 +58,7 @@ public class Product {
 	public void setP_brand(String p_brand) {
 		this.p_brand = p_brand;
 	}
-	public int getP_status() {
+	public int getP_status() { 
 		return p_status;
 	}
 	public void setP_status(int p_status) {
