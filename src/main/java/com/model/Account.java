@@ -7,7 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -39,15 +41,20 @@ public class Account {
 	@Column(name = "phone")
 	private String phone;
 	
-	@Column(name = "role")
-	private int role;
+    @OneToOne
+    @JoinColumn(name = "role_id")
+	private Role role;
 	
 	@OneToMany(mappedBy = "account")
     private Set<Orders> Orders;
 	
 	
+	@OneToMany(mappedBy = "account")
+    private Set<Content> Contents;
+	
+	
 	public Account(long id, String name, String mail, String password, String address, String dob, String avatar,
-			String phone, int role) {
+			String phone, Role role, Set<Orders> orders) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -58,83 +65,10 @@ public class Account {
 		this.avatar = avatar;
 		this.phone = phone;
 		this.role = role;
+		Orders = orders;
 	}
-
-	public Account() {
-		super();
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getMail() {
-		return mail;
-	}
-
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getDob() {
-		return dob;
-	}
-
-	public void setDob(String dob) {
-		this.dob = dob;
-	}
-
-	public String getAvatar() {
-		return avatar;
-	}
-
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public int getRole() {
-		return role;
-	}
-
-	public void setRole(int role) {
-		this.role = role;
-	}
+	
+	
 	
 	
 
