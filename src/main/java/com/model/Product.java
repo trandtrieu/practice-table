@@ -8,7 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -26,9 +26,9 @@ public class Product {
 	@Column
 	private int p_status;
 	
-    @OneToOne
+	@ManyToOne
     @JoinColumn(name = "category_id")
-	private Category category;
+    private Category category;
     
     
 	public Product() {

@@ -8,8 +8,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -41,9 +41,15 @@ public class Account {
 	@Column(name = "phone")
 	private String phone;
 	
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "role_id")
-	private Role role;
+    private Role role;
+	
+    
+    
+    
+    
+    
 	
 	@OneToMany(mappedBy = "account")
     private Set<Orders> Orders;
@@ -53,20 +59,7 @@ public class Account {
     private Set<Content> Contents;
 	
 	
-	public Account(long id, String name, String mail, String password, String address, String dob, String avatar,
-			String phone, Role role, Set<Orders> orders) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.mail = mail;
-		this.password = password;
-		this.address = address;
-		this.dob = dob;
-		this.avatar = avatar;
-		this.phone = phone;
-		this.role = role;
-		Orders = orders;
-	}
+
 	
 	
 	

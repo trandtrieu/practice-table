@@ -17,6 +17,8 @@ public class Role {
 	@Column
 	private String role_name;
 
+
+
 	public Role() {
 		super();
 	}
