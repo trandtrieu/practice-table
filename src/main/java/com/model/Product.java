@@ -14,15 +14,15 @@ import jakarta.persistence.Table;
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int product_id;
 	@Column
-	private String name;
+	private String p_name;
 	@Column
-	private BigDecimal price;
+	private BigDecimal p_price;
 	@Column
-	private String brand;
+	private String p_brand;
 	@Column
-	private int status;
+	private int p_status;
 	
 	
 //	@OneToOne(cascade = CascadeType.ALL)

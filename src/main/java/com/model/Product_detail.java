@@ -9,9 +9,10 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name ="product_detail")
 public class Product_detail {
-	@Id
-	private int p_id;
+//	@Id
+//	private int p_id;
 	
+	@Id
     @OneToOne
     @JoinColumn(name = "product_id")
 	private Product product;
