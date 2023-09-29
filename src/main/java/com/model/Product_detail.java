@@ -9,8 +9,8 @@ public class Product_detail {
 	@Id
 	private int id;
 
-	@Column
-	private String desc_component
-	private String desc_vitue
-	private String desc_detail
+//	@Column
+//	private String desc_component
+//	private String desc_vitue
+//	private String desc_detail
 }
