@@ -1,11 +1,13 @@
 package com.model;
 
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -13,7 +15,7 @@ import jakarta.persistence.Table;
 public class Account {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	
 	
 	@Column(name = "name")
@@ -40,11 +42,11 @@ public class Account {
 	@Column(name = "role")
 	private int role;
 	
-	@OneToOne(mappedBy = "account")
-    private Orders Orders;
+	@OneToMany(mappedBy = "account")
+    private Set<Orders> Orders;
 	
 	
-	public Account(int id, String name, String mail, String password, String address, String dob, String avatar,
+	public Account(long id, String name, String mail, String password, String address, String dob, String avatar,
 			String phone, int role) {
 		super();
 		this.id = id;
@@ -62,11 +64,11 @@ public class Account {
 		super();
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

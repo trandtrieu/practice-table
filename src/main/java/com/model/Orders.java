@@ -1,6 +1,5 @@
 package com.model;
 
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,7 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -30,15 +29,13 @@ public class Orders {
 	@Column(name = "ship_id")
 	private int ship_id;
 
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "u_id", referencedColumnName = "id")
+	private Account account;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "u_id", referencedColumnName = "id")
-    private Account account;
-    
 	public Orders() {
 		super();
 	}
-
 
 	public Orders(int id, String o_totalPrice, String o_address, String o_note, int ship_id) {
 		super();
@@ -88,17 +85,5 @@ public class Orders {
 	public void setShip_id(int ship_id) {
 		this.ship_id = ship_id;
 	}
-
-
-	public Account getAccount() {
-		return account;
-	}
-
-
-	public void setAccount(Account account) {
-		this.account = account;
-	}
-
-
 
 }
