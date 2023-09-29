@@ -23,6 +23,41 @@ public class Product {
 	private String p_brand;
 	@Column
 	private int p_status;
+	public Product() {
+		super();
+	}
+	public int getProduct_id() {
+		return product_id;
+	}
+	public void setProduct_id(int product_id) {
+		this.product_id = product_id;
+	}
+	public String getP_name() {
+		return p_name;
+	}
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
+	}
+	public BigDecimal getP_price() {
+		return p_price;
+	}
+	public void setP_price(BigDecimal p_price) {
+		this.p_price = p_price;
+	}
+	public String getP_brand() {
+		return p_brand;
+	}
+	public void setP_brand(String p_brand) {
+		this.p_brand = p_brand;
+	}
+	public int getP_status() {
+		return p_status;
+	}
+	public void setP_status(int p_status) {
+		this.p_status = p_status;
+	}
+	
+	
 	
 	
 	
